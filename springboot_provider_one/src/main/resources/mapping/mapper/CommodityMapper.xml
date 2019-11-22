@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+  <mapper namespace="com.jk.goods.mapper.CommodityMapper" >
+      <select id="queryCommodityById" resultType="java.util.Map" parameterType="int">
+        select *
+        from t_commodity tcd
+
+        LEFT JOIN t_productversion tpd on tcd.productVersionid = tpd.productVersion_id
+
+        LEFT JOIN t_productcpu tpc on tcd.productCpuId = tpc.productCpu_id
+
+        LEFT JOIN t_productorigin tpr on tcd.productOriginId = tpr.productOrigin_id
+
+        LEFT JOIN t_productbrand tpb on tcd.productBrand = tpb.productBrand_id
+
+        LEFT JOIN t_operatingsystem tos on tcd.operatingSystem = tos.operatingSystem_id
+
+        left JOIN	t_commodity_color tcc on tcd.productId=tcc.commodityid
+
+        LEFT JOIN t_productcolor tpcc on tcc.productColorid=tpcc.productColor_id
+
+        LEFT JOIN t_version_color tvc on tpcc.productColor_id=tvc.productcolorid
+
+        LEFT JOIN t_productversion tpv on tvc.productVersionid=tpv.productVersion_id
+
+        where
+
+
+        tcd.productState = 1
+
+        <if test="id!=null and id!=''">
+
+          and productId =#{id,jdbcType=INTEGER}
+        </if>
+        GROUP BY tcd.productId
+      </select>
+  <select id="queryColorList" resultType="java.util.Map" parameterType="integer">
+        select * from t_commodity tc
+        LEFT JOIN t_commodity_color tcc on tc.productId=tcc.commodityid
+        LEFT JOIN t_productcolor tpc on tcc.productColorid=tpc.productColor_id
+        where tc.productId=#{id,jdbcType=INTEGER}
+        group by tpc.productColor_id
+
+  </select>
+  <select id="queryVersionsList" resultType="java.util.Map">
+        SELECT t.productVersion_id as a,t.productVersion_name b,t.productVersion_price c FROM t_productversion t
+  </select>
+  <select id="changeColor" resultType="java.util.Map" parameterType="integer">
+        select tp.productColor_img img,tp.productColor_count count,tp.productColor_id colorId,tp.productColor_name name from t_productcolor tp
+       where tp.productColor_id=#{id}
+  </select>
+  <select id="changeVersion" resultType="java.util.Map">
+        SELECT t.productVersion_id as a,t.productVersion_name b,t.productVersion_price c FROM t_productversion t
+        where t.productVersion_id=#{id,jdbcType=INTEGER}
+  </select>
+    <select id="queryTypeCommodity" resultType="java.util.Map">
+        select *
+        from t_commodity tcd
+
+        LEFT JOIN t_productversion tpd on tcd.productVersionid = tpd.productVersion_id
+
+        LEFT JOIN t_productcpu tpc on tcd.productCpuId = tpc.productCpu_id
+
+        LEFT JOIN t_productorigin tpr on tcd.productOriginId = tpr.productOrigin_id
+
+        LEFT JOIN t_productbrand tpb on tcd.productBrand = tpb.productBrand_id
+
+        LEFT JOIN t_operatingsystem tos on tcd.operatingSystem = tos.operatingSystem_id
+
+        left JOIN	t_commodity_color tcc on tcd.productId=tcc.commodityid
+
+        LEFT JOIN t_productcolor tpcc on tcc.productColorid=tpcc.productColor_id
+
+        LEFT JOIN t_version_color tvc on tpcc.productColor_id=tvc.productcolorid
+
+        LEFT JOIN t_productversion tpv on tvc.productVersionid=tpv.productVersion_id
+
+        where
+
+        tcd.productState = 1 and tpb.productBrand_id=#{id,jdbcType=INTEGER}
+
+        GROUP BY tcd.productId
+    </select>
+    <!--<insert id="addOrders" parameterType="com.jk.model.TbOrder">
+        INSERT INTO tb_order (
+        order_id,
+        payment,
+        payment_type,
+        STATUS,
+        create_time,
+        update_time,
+        user_id,
+        receiver_area_name,
+        receiver_mobile,
+        receiver,
+        source_type
+        )
+        VALUES
+        (
+        #{orderId},
+        #{payment},
+        #{paymentType},
+        #{status},
+        sysdate(),
+        sysdate(),
+        #{userId},
+        #{receiverAreaName},
+        #{receiverMobile},
+        #{receiver},
+        #{sourceType}
+        )
+    </insert>-->
+
+  </mapper>

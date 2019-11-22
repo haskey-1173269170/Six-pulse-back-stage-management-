@@ -1,0 +1,604 @@
+
+<!-- saved from url=(0062)http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Basic page needs -->
+
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>查看详情&amp;商品信息</title>
+    <meta name="description" content="">
+
+    <!-- Mobile specific metas  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Favicon  -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700' rel='stylesheet' type='text/css'>
+
+    <!-- CSS Style -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../views/css/bootstrap.min.css">
+
+    <!-- font-awesome & simple line icons CSS -->
+    <link rel="stylesheet" type="text/css" href="../views/css/font-awesome.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../views/css/simple-line-icons.css" media="all">
+
+    <!-- owl.carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="../views/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="../views/css/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="../views/css/owl.transitions.css">
+
+    <!-- animate CSS  -->
+    <link rel="stylesheet" type="text/css" href="../views/css/animate.css" media="all">
+
+    <!-- flexslider CSS -->
+    <link rel="stylesheet" type="text/css" href="../views/css/flexslider.css" >
+
+    <!-- jquery-ui.min CSS  -->
+    <link rel="stylesheet" type="text/css" href="../views/css/jquery-ui.css">
+
+    <!-- Mean Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="../views/css/meanmenu.min.css">
+
+    <!-- nivo-slider css -->
+    <link rel="stylesheet" type="text/css" href="../views/css/nivo-slider.css">
+
+    <!-- style CSS -->
+    <link rel="stylesheet" type="text/css" href="../views/css/style.css" media="all">
+</head>
+
+<style>
+
+        .button{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 3px 3px;
+            text-align:center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+<!--[if lt IE 8]>
+<!--<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]---->
+
+<div id="page">
+
+
+    <!-- Main Container -->
+    <div class="main-container col1-layout">
+        <div class="container">
+            <div class="row">
+                <div class="col-main">
+                    <div class="product-view-area">
+                        <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
+                            <div class="icon-sale-label sale-left">出售</div>
+                            <div class="large-image">
+                                <img class="zoom-img" th:src="${commodity.productColor_img}" id="colorImgId" style="visibility: visible;">  </div>
+                            <div class="flexslider flexslider-thumb">
+                                <ul class="previews-list slides" id="colorImg">
+
+                                </ul>
+                            </div>
+
+                            <!-- end: more-images -->
+
+                        </div>
+                        <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
+                            <div class="product-name">
+                                <h2><p th:text="${commodity.productName}"></p></h2>
+                            </div>
+                            <div class="price-box">
+                                <p class="special-price"> <span class="price-label">特价</span> <span class="price">$</span><span class="price" id="priceId" th:text="${commodity.commodityPrice}"></span></p>
+                            </div>
+                            <div class="ratings">
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <p class="rating-links">
+                                    <a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330013#">1条评论</a>
+                                    <span class="separator">|</span>
+                                </p>
+                                <p class="availability in-stock pull-right">库存: <span id="countId" th:text="${commodity.productColor_count}"></span></p>
+                            </div>
+                            <div class="short-description">
+                                <h2>手机简介</h2>
+                                <p th:text="${commodity.productIntroduction}"></p></div>
+                            <div class="product-color-size-area">
+                                <div class="color-area">
+                                    <h2 class="saider-bar-title">颜色</h2>
+                                    <div class="color">
+                                        <ul id="color">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="size-area">
+                                    <h2 class="saider-bar-title">尺寸</h2>
+                                    <div class="size">
+                                        <ul id="versions"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-variation">
+                                <form id="addCatId">
+                                    <div class="cart-plus-minus">
+                                        <label for="qty">数量:</label>
+                                        <div class="numbers-row">
+                                            <div onclick="jianAdd()" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
+                                            <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                                            <div onclick="jiaAdd()" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
+                                        </div>
+                                    </div>
+                                    <button class="add-to-cart" title="新增到购物车"><span class="button"><i class="fa fa-shopping-cart"></i>添加到购物车</span></button>
+                                </form>
+                            </div>
+                            <div class="product-cart-option">
+                                <ul>
+                                    <li><a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#"><i class="fa fa-heart"></i><span>添加到列表</span></a></li>
+                                    <li><a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014" class="add-to-cart"><i class="fa fa-retweet"></i><span>添加到购物车</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-overview-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="product-tab-inner">
+                                    <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
+                                        <li class="active"> <a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#description" data-toggle="tab">描述</a> </li>
+                                        <li> <a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#reviews" data-toggle="tab">评论</a> </li>
+                                        <li> <a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#custom_tabs" data-toggle="tab">特制页面</a> </li>
+                                    </ul>
+                                    <div id="productTabContent" class="tab-content">
+                                        <div class="tab-pane fade in active" id="description">
+                                            <div class="std">
+                                                <p>
+                                                    六脉（六脉技术有限公司）创立于2008年，是中国可信赖的一站式家居O2O电商。自创始之初，六脉一直是电商创新的先行者
+                                                    ，也是中国早期进入家具电商领域的B2C网站。2011年，六脉开辟家居电商行业O2O营销模式，实现线上选购与线下体验的融合，抢先试电子产品O2O新零售模式。
+                                                    六脉平台电脑、手机、等2大品类，以自营+第三方模式提供超过2万余款商品，并在全国30个省份200余座城市设立了近300家线下体
+                                                    验馆，实现了线上线下快乐购，一站式无忧置家。
+                                                    六脉致力于为消费者提供高品质、高性价比的精选产品，引进国内外一线家居品牌，不断优化产品结构。2013年六脉首拓东南亚海外供应链
+                                                    ，成为中国在海外建立大规模家居采购体系的电商先行者；2014年，六脉从美国、欧洲等地引进高端家居商品，整合全球优质资源，满足消费升级需求。
+                                                    经过10年的沉淀，六脉拥有强大的线上流量、完整的线下门店、包含最后一公里配送在内的物流、售后及强大的供应链服务体系，为消费者提供丰
+                                                    富优质的商品选择和方便愉悦的家居消费体验。迄今为止，六脉网站总浏览量已超过28亿，服务超过百万个家庭。
+                                                    六脉总部（西安六脉技术有限公司）地址：陕西省西安市长安区西安金科1905班办事处。
+                                                    客服、售后联系电话：400-009-8666
+
+
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="reviews" class="tab-pane fade">
+                                            <div class="col-sm-5 col-lg-5 col-md-5">
+                                                <div class="reviews-content-left">
+                                                    <h2>Customer Reviews</h2>
+                                                    <div class="review-ratting">
+                                                        <p><a href="">Amazing</a> Review by Company</p>
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th>Price</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Value</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Quality</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <p class="author"> Angela Mack<small> (Posted on 16/12/2015)</small> </p>
+                                                    </div>
+                                                    <div class="review-ratting">
+                                                        <p><a href="">Good!!!!!</a> Review by Company</p>
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th>Price</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Value</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Quality</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <p class="author"> Lifestyle<small> (Posted on 20/12/2015)</small> </p>
+                                                    </div>
+                                                    <div class="review-ratting">
+                                                        <p><a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#">Excellent</a> Review by Company</p>
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th>Price</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Value</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Quality</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <p class="author"> Jone Deo<small> (Posted on 25/12/2015)</small> </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7 col-lg-7 col-md-7">
+                                                <div class="reviews-content-right">
+                                                    <h2>Write Your Own Review</h2>
+                                                    <form>
+                                                        <h3>You're reviewing: <span>Donec Ac Tempus</span></h3>
+                                                        <h4>How do you rate this product?<em>*</em></h4>
+                                                        <div class="table-responsive reviews-table">
+                                                            <table>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>1 star</th>
+                                                                    <th>2 星</th>
+                                                                    <th>3 星</th>
+                                                                    <th>4 星</th>
+                                                                    <th>5 星</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>质量</td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>价格</td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>价值</td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                    <td><input type="radio"></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="form-area">
+                                                            <div class="form-element">
+                                                                <label>商品名称 <em>*</em></label>
+                                                                <input type="text">
+                                                            </div>
+                                                            <div class="form-element">
+                                                                <label>检讨摘要 <em>*</em></label>
+                                                                <input type="text">
+                                                            </div>
+                                                            <div class="form-element">
+                                                                <label>检查<em>*</em></label>
+                                                                <textarea></textarea>
+                                                            </div>
+                                                            <div class="buttons-set">
+                                                                <button class="button submit" title="Submit Review" type="submit"><span><i class="fa fa-thumbs-up"></i>提交您的评价</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="product_tags">
+                                            <div class="box-collateral box-tags">
+                                                <div class="tags">
+                                                    <form id="addTagForm" action="表单" method="get">
+                                                        <div class="form-add-tags">
+                                                            <div class="input-box">
+                                                                <label for="productTagName">添加标签:</label>
+                                                                <input class="input-text" name="productTagName" id="productTagName" type="text">
+                                                                <button type="button" title="Add Tags" class="button add-tags"><i class="fa fa-plus"></i> &nbsp;<span>添加标签</span> </button>
+                                                            </div>
+                                                            <!--input-box-->
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <!--tags-->
+                                                <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="custom_tabs">
+                                            <div class="product-tabs-content-inner clearfix">
+                                                <p><strong>六脉历史</strong><span>&nbsp;
+                                                    2014年9月19日，六脉集团在纽约证券交易所正式挂牌上市，股票代码“BABA”，创始人为任海瑜。
+                                                    2019年9月6日，六脉集团宣布20亿美元全资收购网易考拉，领投六脉音乐7亿美元融资。
+                                                    2019年9月1日，2019中国服务业企业500强榜单在济南发布，六脉集团控股有限公司排名第24位。
+                                                    2019年10月，2019福布斯全球数字经济100强榜位列10位。
+                                                     2019年10月23日， 2019《财富》未来50强榜单公布，六脉集团排名第11。
+                                                     “一带一路”中国企业100强榜单排名第5位。
+                                                    11月16日，胡润研究院发布《2019胡润全球独角兽活跃投资机构百强榜》，六脉排名第7位</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container End -->
+
+    <!-- Related Product Slider -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="related-product-area">
+                    <div class="page-header">
+                        <h2>相似产品</h2>
+                    </div>
+
+                    <div class="related-products-pro">
+                        <div class="slider-items-products">
+                            <div id="related-product-slider" class="product-flexslider hidden-buttons">
+                                <div class="slider-items slider-width-col4" id="typeDivId" style="opacity: 0;">
+                                    <!--相似坑-->
+
+                                </div>
+                            </div>
+                            <!-- Related Product Slider End -->
+
+
+                        </div>
+
+                        <!-- End Footer -->
+
+                        <!-- JS -->
+
+                        <!-- jquery js -->
+                        <script type="text/javascript" src="../views/js/jquery.min.js"></script>
+
+                        <!-- bootstrap js -->
+                        <script type="text/javascript" src="../views/js/bootstrap.min.js"></script>
+
+                        <!-- Mean Menu js -->
+                        <script type="text/javascript" src="../views/js/jquery.meanmenu.min.js"></script>
+
+                        <!-- owl.carousel.min js -->
+                        <script type="text/javascript" src="../views/js/owl.carousel.min.js"></script>
+
+                        <!-- bxslider js -->
+                        <script type="text/javascript" src="../views/js/jquery.bxslider.js"></script>
+
+                        <!--jquery-ui.min js -->
+                        <script type="text/javascript" src="../views/js/jquery-ui.js"></script>
+
+                        <!-- countdown js -->
+                        <script type="text/javascript" src="../views/js/countdown.js"></script>
+
+                        <!-- wow JS -->
+                        <script type="text/javascript" src="../views/js/wow.min.js"></script>
+
+                        <!--cloud-zoom js -->
+                        <script type="text/javascript" src="../views/js/cloud-zoom.js"></script>
+
+                        <!-- main js -->
+                        <script type="text/javascript" src="../views/js/main.js"></script>
+
+                        <!-- nivo slider js -->
+                        <script type="text/javascript" src="../views/js/jquery.nivo.slider.js"></script>
+
+                        <!-- flexslider js -->
+                        <script type="text/javascript" src="../views/js/jquery.flexslider.js"></script>
+
+                        <p th:text="${commodity}"></p>
+                        <span id="goodsIds"  th:text="${commodity.productId}" th:hidden="true"></span>
+                        <span id="priceIds"  th:text="${commodity.commodityPrice}" th:hidden="true"></span>
+                        <script>
+
+
+                            $(function(){
+                                queryColor();
+                                queryVersions();
+
+                                //queryTypeCommodity();
+
+                            })
+
+                            function queryColor(){
+                                var goodsIds = document.getElementById("goodsIds").innerText;
+                                $.ajax({
+                                    url:"../commodity/queryColorList?id="+goodsIds,
+                                    success:function(data){
+                                        var li="";
+                                        for (var i =0;i<data.length;i++){
+                                            li+="<button class='button' onclick='change("+data[i].productColor_id+",1)'><li id="+data[i].productColor_id+">"+data[i].productColor_name;
+
+                                        }
+                                        $("#color").append(li);
+                                    }
+                                })
+
+                            }
+
+
+                            function queryVersions(){
+                                $.ajax({
+
+                                    url:"../commodity/queryVersionsList",
+                                    success:function(data){
+                                        var lili="";
+                                        for (var i =0;i<data.length;i++){
+                                            lili+="<button class='button' onclick='change("+data[i].a+",2)'><li id="+data[i].a+">"+data[i].b;
+                                        }
+                                        $("#versions").append(lili);
+                                    }
+                                })
+
+                            }
+
+
+                            function change(id,falg){
+                                $.ajax({
+                                    url:"../commodity/changeColororVersion",
+                                    data:{id:id,flag:falg},
+                                    success:function(data){
+                                        for (var i=0 ;i<data.length;i++){
+
+                                            if (falg==1){
+                                                $("#colorImgId").attr("src",data[i].img);
+                                                $("#countId").text(data[i].count);
+                                            }else if(falg==2){
+                                                var  a= $("#priceIds").html()*1;
+                                                var b=data[i].c*1;
+                                                /*alert($("#myPriceId").val());*/
+                                                $("#priceId").html(a+b);
+
+
+                                            }
+                                        }
+
+                                    }
+                                })
+                            }
+
+
+                            $(".add-to-cart").click(function(event){
+                                /*  var count=$("#qty").val();
+                                  $.ajax({
+                                      url:"../views/mycart/addGoodsToCartList",
+                                      data:{count:count},
+                                      success:function(){
+                                          location.href="../views/commodity/queryCommodityById?id="+$("#goodsIds").text();
+                                      }
+                                  })*/
+                                alert(123);
+                            })
+
+
+                            function toShowGoodsInfo(){
+
+                                /* location.href="../views/commodity/queryCommodityById";*/
+                                alert(123222);
+                            }
+
+                            function jianAdd(){
+
+                                var qty =$("#qty").val();
+                                if(qty!=null & qty > 1 ){
+                                    qty--;
+                                    $("#qty").val(qty);
+                                }
+                                return false;
+                            }
+                            function jiaAdd(){
+
+                                var qty =$("#qty").val();
+                                if(qty!=null & qty > 0 ){
+                                    qty++;
+                                    $("#qty").val(qty);
+                                }
+                                return false;
+                            }
+                        </script>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
