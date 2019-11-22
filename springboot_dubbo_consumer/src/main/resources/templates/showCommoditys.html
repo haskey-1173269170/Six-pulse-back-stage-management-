@@ -78,7 +78,7 @@
 <!--[endif]---->
 
 <div id="page">
-
+<button class="button">返回首页</button>
 
     <!-- Main Container -->
     <div class="main-container col1-layout">
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="product-variation">
-                                <form id="addCatId">
+                                <form action="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#" method="post">
                                     <div class="cart-plus-minus">
                                         <label for="qty">数量:</label>
                                         <div class="numbers-row">
@@ -148,7 +148,7 @@
                                             <div onclick="jiaAdd()" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
                                         </div>
                                     </div>
-                                    <button class="add-to-cart" title="新增到购物车"><span class="button"><i class="fa fa-shopping-cart"></i>添加到购物车</span></button>
+                                    <button class="add-to-cart" title="新增到购物车"><span class="button pro-add-to-cart"><i class="fa fa-shopping-cart"></i>添加到购物车</span></button>
                                 </form>
                             </div>
                             <div class="product-cart-option">
@@ -193,13 +193,13 @@
                                         <div id="reviews" class="tab-pane fade">
                                             <div class="col-sm-5 col-lg-5 col-md-5">
                                                 <div class="reviews-content-left">
-                                                    <h2>用户评论</h2>
+                                                    <h2>Customer Reviews</h2>
                                                     <div class="review-ratting">
-                                                        <p><a href="">令人吃惊的</a> 审查</p>
+                                                        <p><a href="">Amazing</a> Review by Company</p>
                                                         <table>
                                                             <tbody>
                                                             <tr>
-                                                                <th>价格</th>
+                                                                <th>Price</th>
                                                                 <td><div class="rating">
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
@@ -209,7 +209,7 @@
                                                                 </div></td>
                                                             </tr>
                                                             <tr>
-                                                                <th>价值</th>
+                                                                <th>Value</th>
                                                                 <td><div class="rating">
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
@@ -219,27 +219,25 @@
                                                                 </div></td>
                                                             </tr>
                                                             <tr>
-                                                                <th>质量</th>
+                                                                <th>Quality</th>
                                                                 <td><div class="rating">
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star-o"></i>
                                                                     <i class="fa fa-star-o"></i>
-
-                                                                    </div>
-                                                                </td>
+                                                                </div></td>
                                                             </tr>
                                                             </tbody>
                                                         </table>
-                                                        <p class="author">安琪拉马克<small>(评论时间: 16/12/2015)</small> </p>
+                                                        <p class="author"> Angela Mack<small> (Posted on 16/12/2015)</small> </p>
                                                     </div>
                                                     <div class="review-ratting">
-                                                        <p><a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#">优秀的</a>评价</p>
+                                                        <p><a href="">Good!!!!!</a> Review by Company</p>
                                                         <table>
                                                             <tbody>
                                                             <tr>
-                                                                <th>价格</th>
+                                                                <th>Price</th>
                                                                 <td><div class="rating">
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
@@ -249,7 +247,7 @@
                                                                 </div></td>
                                                             </tr>
                                                             <tr>
-                                                                <th>价值</th>
+                                                                <th>Value</th>
                                                                 <td><div class="rating">
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
@@ -259,20 +257,56 @@
                                                                 </div></td>
                                                             </tr>
                                                             <tr>
-                                                                <th>质量</th>
-                                                                <td>
-                                                                    <div class="rating">
+                                                                <th>Quality</th>
+                                                                <td><div class="rating">
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star-o"></i>
                                                                     <i class="fa fa-star-o"></i>
-                                                                    </div>
-                                                                </td>
+                                                                </div></td>
                                                             </tr>
                                                             </tbody>
                                                         </table>
-                                                        <p class="author">约恩托<small>(评论时间: 25/12/2015)</small> </p>
+                                                        <p class="author"> Lifestyle<small> (Posted on 20/12/2015)</small> </p>
+                                                    </div>
+                                                    <div class="review-ratting">
+                                                        <p><a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#">Excellent</a> Review by Company</p>
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th>Price</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Value</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Quality</th>
+                                                                <td><div class="rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </div></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <p class="author"> Jone Deo<small> (Posted on 25/12/2015)</small> </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -280,46 +314,8 @@
                                                 <div class="reviews-content-right">
                                                     <h2>写你自己的评论</h2>
                                                     <form>
-                                                        <table>
-                                                        <h4>你觉得这个商品怎么样?<em>*</em></h4>
-                                                        <div class="table-responsive reviews-table">
-                                                            <table>
-                                                                <tbody>
-                                                                <tr>
-                                                                    <th></th>
-                                                                    <th>1 star</th>
-                                                                    <th>2 星</th>
-                                                                    <th>3 星</th>
-                                                                    <th>4 星</th>
-                                                                    <th>5 星</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>质量</td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>价格</td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>价值</td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                    <td><input type="radio"></td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                        <h4>你如何评价这种产品?<em>*</em></h4>
+
                                                         <div class="form-area">
                                                             <div class="form-element">
                                                                 <label>商品名称 <em>*</em></label>
@@ -337,7 +333,6 @@
                                                                 <button class="button submit" title="Submit Review" type="submit"><span><i class="fa fa-thumbs-up"></i>提交您的评价</span></button>
                                                             </div>
                                                         </div>
-                                                        </table>
                                                     </form>
                                                 </div>
                                             </div>
@@ -350,18 +345,18 @@
                                                             <div class="input-box">
                                                                 <label for="productTagName">添加标签:</label>
                                                                 <input class="input-text" name="productTagName" id="productTagName" type="text">
-                                                                <button type="button" title="Add Tags" class="button add-tags"><i class="fa fa-plus"></i><span>添加标签</span> </button>
+                                                                <button type="button" title="Add Tags" class="button add-tags"><i class="fa fa-plus"></i> &nbsp;<span>添加标签</span> </button>
                                                             </div>
                                                             <!--input-box-->
                                                         </div>
                                                     </form>
                                                 </div>
                                                 <!--tags-->
-                                                <p class="note">使用空格分隔标签</p>
+                                                <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="custom_tabs">
-                                        <div class="product-tabs-content-inner clearfix">
+                                            <div class="product-tabs-content-inner clearfix">
                                                 <p><strong>六脉历史</strong><span>&nbsp;
                                                     2014年9月19日，六脉集团在纽约证券交易所正式挂牌上市，股票代码“BABA”，创始人为任海瑜。
                                                     2019年9月6日，六脉集团宣布20亿美元全资收购网易考拉，领投六脉音乐7亿美元融资。
@@ -384,6 +379,10 @@
 
     <!-- Main Container End -->
 
+    <!-- Related Product Slider -->
+
+
+                        <!-- End Footer -->
 
                         <!-- JS -->
 
@@ -423,7 +422,6 @@
                         <!-- flexslider js -->
                         <script type="text/javascript" src="../views/js/jquery.flexslider.js"></script>
 
-                        <!--<p th:text="${commodity}"></p>-->
                         <span id="goodsIds"  th:text="${commodity.productId}" th:hidden="true"></span>
                         <span id="priceIds"  th:text="${commodity.commodityPrice}" th:hidden="true"></span>
                         <script>
@@ -459,7 +457,6 @@
 
                                     url:"../commodity/queryVersionsList",
                                     success:function(data){
-
                                         var lili="";
                                         for (var i =0;i<data.length;i++){
                                             lili+="<button class='button' onclick='change("+data[i].a+",2)'><li id="+data[i].a+">"+data[i].b;
@@ -537,11 +534,6 @@
 
 
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 </body>

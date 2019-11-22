@@ -8,8 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springboot_dubbo_consumer" />
         <module name="mavenproject" />
-        <module name="springboot_dubbo_api" />
         <module name="springboot_provider_one" />
+        <module name="springboot_dubbo_api" />
       </profile>
     </annotationProcessing>
   </component>
